@@ -56,7 +56,7 @@ export const AuthForm = () => {
   const handleShopifyAuth = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'shopify',
+        provider: 'shopify' as any, // Type assertion as temporary fix
         options: {
           redirectTo: `${window.location.origin}/auth/callback`,
         },
